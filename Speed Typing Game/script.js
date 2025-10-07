@@ -1,9 +1,4 @@
-/*  TODO:
-    - show high score, store it in local storage
-    - load random words from an API
- */
 
- // VARIABLES
  let words = ['magic', 'journey', 'travel', 'explore', 'life', 
 'experience', 'happiness', 'gratitude', 'discipline', 'exercise', 
 'workout', 'friendship', 'practice', 'routine', 'morning', 'reading', 
@@ -32,19 +27,16 @@ let currentWord  = document.querySelector('#current-word'),
     difficultyLevel = document.querySelector('#difficulty');
 
 
-// EVENT LISTENERS
+
 window.addEventListener('load', init);
 inputWord.addEventListener('input', startMatch);
 difficultyLevel.addEventListener('change', changeLevel);
 
 
-// FUCNTIONS
 function init() { 
     time.textContent = currentLevel;
     showWord();
-    // call the countdown function every second
     setInterval(countdown, 1000);
-    // cheking the game status every 0.1s
     setInterval(checkStatus, 100);
 }
 function showWord() {
@@ -54,7 +46,6 @@ function showWord() {
 }
 function countdown() {
     if (timeCount > 0) {
-        // console.log(timeCount);
         timeCount--;   
         timeLeft.textContent = timeCount;
     } else if(timeCount === 0) {
@@ -76,7 +67,7 @@ function startMatch() {
         this.value = ''
         scoreCount++;
         score.textContent = scoreCount;
-        timeCount = currentLevel + 1; // will reset the clock to start the countdown again
+        timeCount = currentLevel + 1; 
         showWord();
     }
 }
